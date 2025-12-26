@@ -730,6 +730,92 @@
             box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
         }
 
+        /* Waitlist Section */
+        .waitlist-section {
+            padding: 80px 0;
+        }
+
+        .waitlist-card {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .waitlist-desc {
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+
+        .waitlist-form {
+            width: 100%;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .form-input {
+            flex: 1;
+            min-width: 180px;
+            padding: 14px 18px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--glow-purple);
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
+        }
+
+        .btn-waitlist {
+            padding: 14px 28px;
+            background: linear-gradient(135deg, var(--glow-cyan), var(--glow-green));
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .btn-waitlist:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(6, 182, 212, 0.4);
+        }
+
+        .form-embed-wrapper {
+            border-radius: 12px;
+            overflow: hidden;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 640px) {
+            .form-row {
+                flex-direction: column;
+            }
+            
+            .form-input, .btn-waitlist {
+                width: 100%;
+            }
+        }
+
         /* FAQ Section */
         .faq-section {
             padding: 100px 0;
@@ -1032,6 +1118,39 @@
                     <a href="https://buy.stripe.com/6oU6oJ9XscIrcrQ8g23ZK00" class="btn-offer">Become a Founding Member</a>
                     <p class="spots-remaining"><strong>100 of 100</strong> spots remaining</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Waitlist Section -->
+    <section class="waitlist-section" id="waitlist">
+        <div class="container">
+            <div class="waitlist-card glass-card">
+                <div class="section-label">Not Ready to Commit?</div>
+                <h2>Join the waitlist</h2>
+                <p class="waitlist-desc">Get notified when we launch, plus early insights on career strategy in the AI era. No spam, unsubscribe anytime.</p>
+                
+                <!-- HighLevel Form Embed -->
+                <div class="form-embed-wrapper">
+                    <iframe
+                        src="https://link.trustbasedseo.com/widget/form/f1fAodMmCwIJeAG8j2bH"
+                        style="width:100%;height:563px;border:none;border-radius:4px"
+                        id="inline-f1fAodMmCwIJeAG8j2bH" 
+                        data-layout="{'id':'INLINE'}"
+                        data-trigger-type="alwaysShow"
+                        data-trigger-value=""
+                        data-activation-type="alwaysActivated"
+                        data-activation-value=""
+                        data-deactivation-type="neverDeactivate"
+                        data-deactivation-value=""
+                        data-form-name="Waiting List"
+                        data-height="563"
+                        data-layout-iframe-id="inline-f1fAodMmCwIJeAG8j2bH"
+                        data-form-id="f1fAodMmCwIJeAG8j2bH"
+                        title="Waiting List"
+                    ></iframe>
+                </div>
+                <script src="https://link.trustbasedseo.com/js/form_embed.js"></script>
             </div>
         </div>
     </section>

@@ -517,20 +517,24 @@
         }
 
         .offer-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            display: flex;
+            justify-content: center;
             gap: 32px;
             align-items: start;
+            max-width: 480px;
+            margin: 0 auto;
         }
 
         @media (max-width: 768px) {
             .offer-wrapper {
-                grid-template-columns: 1fr;
+                flex-direction: column;
+                max-width: 100%;
             }
         }
 
         .offer-card {
             position: relative;
+            width: 100%;
         }
 
         .offer-card.featured {
@@ -686,6 +690,44 @@
 
         .spots-remaining strong {
             color: var(--glow-orange);
+        }
+
+        /* Offer Toggle */
+        .offer-toggle {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 32px 0;
+            padding: 6px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .toggle-btn {
+            padding: 12px 24px;
+            background: transparent;
+            border: none;
+            border-radius: 8px;
+            color: var(--text-secondary);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 500;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .toggle-btn.active {
+            background: linear-gradient(135deg, var(--glow-purple), var(--glow-cyan));
+            color: white;
+            box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
         }
 
         /* FAQ Section */
@@ -846,7 +888,7 @@
                 <div class="glass-card problem-card">
                     <div class="problem-icon">🔍</div>
                     <h3>Job boards match keywords, not potential</h3>
-                    <p>They see "Active Directory" and serve you more AD admin roles at $145K. They have no idea you're capable of more—or that you're done with that path.</p>
+                    <p>They see "Active Directory" and serve you more AD admin roles at $37/hour. They have no idea you're capable of more—or that you're done with that path.</p>
                 </div>
                 <div class="glass-card problem-card">
                     <div class="problem-icon">📚</div>
@@ -868,11 +910,11 @@
             <div class="section-label">Why I Built This</div>
             <div class="glass-card story-card">
                 <div class="story-quote">"</div>
-                <p>I'm 56. I spent 30 years in IT. When I started looking at options, every career site told me the same thing: <strong>"You're missing Okta and Ping Federate. Learn those and you'll be competitive for these $145K AD admin roles."</strong></p>
-                <p>But I didn't want another technician job. I was done being capped at $150K in roles that used 20% of my actual abilities.</p>
-                <p>After months of working through this myself, I discovered something: <span class="story-highlight">my real strength isn't technical skills—it's understanding how complex systems work end-to-end and turning ambiguity into strategy.</span></p>
-                <p>That realization changed everything. I stopped applying to admin roles. I pivoted to AI-enhanced consulting at <strong>$175/hour</strong> doing work that actually uses my brain.</p>
-                <p>I'm building the tool I wish existed—the one that would have saved me months of false starts and shown me the path I couldn't see.</p>
+                <p>I'm 56. I spent 30 years in IT. When I started exploring options, my inbox filled with the same thing: <strong>technical roles wanting Okta, SailPoint, Python, SQL—all at $37-45/hour.</strong> The message was clear: add more certifications, stay in your lane.</p>
+                <p>I tried using AI to explore alternatives. It was tedious. Every chatbot just encouraged whatever I suggested. "Data engineering? Great choice!" "Project management? You'd be perfect!" No pushback. No real analysis. Just cheerleading.</p>
+                <p>After months of careful prompting and iteration, I finally got somewhere useful: <span class="story-highlight">my real strength isn't technical skills—it's understanding how complex systems work end-to-end and turning ambiguity into strategy.</span></p>
+                <p>That changed everything. I stopped chasing certifications. I found work that lets me contribute what I'm actually capable of—not just what fits on a skills matrix.</p>
+                <p>Now I'm building that process into a system. The one that would have saved me months of false starts. The one that pushes back, challenges assumptions, and shows you paths you couldn't see on your own.</p>
                 
                 <div class="story-author">
                     <div class="author-avatar">R</div>
@@ -922,8 +964,13 @@
             <div class="section-label">Limited Founding Offer</div>
             <h2>Get lifetime access before we launch</h2>
             
+            <div class="offer-toggle">
+                <button class="toggle-btn active" data-tier="founding">Founding Member</button>
+                <button class="toggle-btn" data-tier="early">Early Adopter</button>
+            </div>
+            
             <div class="offer-wrapper">
-                <div class="glass-card offer-card">
+                <div class="glass-card offer-card" data-tier="early" style="display: none;">
                     <div class="offer-badge" style="background: transparent; border: 1px solid var(--border-subtle); color: var(--text-secondary);">Early Adopter</div>
                     <div class="offer-price">
                         <span class="price-amount">$99</span>
@@ -945,14 +992,14 @@
                         </li>
                         <li>
                             <span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>
-                            30-day money-back guarantee
+                            Priority support during beta
                         </li>
                     </ul>
                     <!-- REPLACE WITH YOUR STRIPE PAYMENT LINK FOR $99 EARLY ADOPTER -->
-                    <a href="YOUR_STRIPE_LINK_99" class="btn-secondary">Join Early Adopters</a>
+                    <a href="https://buy.stripe.com/bJe8wR4D8bEn77waoa3ZK01" class="btn-secondary">Join Early Adopters</a>
                 </div>
 
-                <div class="glass-card offer-card featured">
+                <div class="glass-card offer-card featured" data-tier="founding">
                     <div class="offer-badge">Founding Member</div>
                     <div class="offer-price">
                         <span class="price-amount">$199</span>
@@ -978,11 +1025,11 @@
                         </li>
                         <li>
                             <span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>
-                            <strong>30-day money-back</strong> guarantee
+                            <strong>1:1 onboarding</strong> to ensure you get results
                         </li>
                     </ul>
                     <!-- REPLACE WITH YOUR STRIPE PAYMENT LINK FOR $199 FOUNDING MEMBER -->
-                    <a href="YOUR_STRIPE_LINK_199" class="btn-offer">Become a Founding Member</a>
+                    <a href="https://buy.stripe.com/6oU6oJ9XscIrcrQ8g23ZK00" class="btn-offer">Become a Founding Member</a>
                     <p class="spots-remaining"><strong>100 of 100</strong> spots remaining</p>
                 </div>
             </div>
@@ -1020,7 +1067,7 @@
                         </span>
                     </button>
                     <div class="faq-answer">
-                        <p>Full refund within 30 days of launch. No questions asked. If it doesn't give you clarity, you shouldn't pay for it.</p>
+                        <p>As a founding member, I'll work with you one-on-one to make sure you get meaningful results. You're getting lifetime access for the price of 5 months at basic pricing—and I'll keep improving the product until you're genuinely happy with what it delivers.</p>
                     </div>
                 </div>
 
@@ -1104,6 +1151,26 @@
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
+            });
+        });
+
+        // Offer tier toggle
+        document.querySelectorAll('.toggle-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const tier = btn.dataset.tier;
+                
+                // Update active button
+                document.querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Show/hide cards
+                document.querySelectorAll('.offer-card').forEach(card => {
+                    if (card.dataset.tier === tier) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
             });
         });
     </script>

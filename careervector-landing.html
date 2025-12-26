@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Vector | Stop Applying to Jobs That Cap Your Future</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #07070a;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --bg-card-hover: rgba(255, 255, 255, 0.06);
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --text-primary: #f0f0f5;
+            --text-secondary: rgba(255, 255, 255, 0.6);
+            --text-muted: rgba(255, 255, 255, 0.4);
+            
+            --glow-purple: #a855f7;
+            --glow-cyan: #06b6d4;
+            --glow-green: #10b981;
+            --glow-orange: #f97316;
+            --glow-pink: #ec4899;
+            
+            --gradient-hero: linear-gradient(135deg, #a855f7 0%, #06b6d4 50%, #10b981 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', -apple-system, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Animated background */
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(168, 85, 247, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(168, 85, 247, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .bg-glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .bg-glow-1 {
+            top: -200px;
+            left: -200px;
+            background: var(--glow-purple);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        .bg-glow-2 {
+            bottom: -200px;
+            right: -200px;
+            background: var(--glow-cyan);
+            animation: float 25s ease-in-out infinite reverse;
+        }
+
+        .bg-glow-3 {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--glow-green);
+            opacity: 0.08;
+            animation: pulse 15s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(50px, 50px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.08; transform: translate(-50%, -50%) scale(1); }
+            50% { opacity: 0.12; transform: translate(-50%, -50%) scale(1.1); }
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 20px 0;
+            background: rgba(7, 7, 10, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            background: var(--gradient-hero);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-cta {
+            padding: 10px 24px;
+            background: transparent;
+            border: 1px solid var(--glow-purple);
+            border-radius: 8px;
+            color: var(--glow-purple);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 500;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .nav-cta:hover {
+            background: var(--glow-purple);
+            color: var(--bg-dark);
+            box-shadow: 0 0 30px rgba(168, 85, 247, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 0 80px;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            backdrop-filter: blur(10px);
+        }
+
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--glow-green);
+            border-radius: 50%;
+            animation: blink 2s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+
+        h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+
+        .gradient-text {
+            background: var(--gradient-hero);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 48px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 18px 40px;
+            background: linear-gradient(135deg, var(--glow-purple), var(--glow-pink));
+            border: none;
+            border-radius: 12px;
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 
+                0 0 40px rgba(168, 85, 247, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 
+                0 0 60px rgba(168, 85, 247, 0.5),
+                0 20px 40px rgba(168, 85, 247, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .cta-note {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .cta-note strong {
+            color: var(--glow-green);
+        }
+
+        /* Glass Card */
+        .glass-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.4s ease;
+        }
+
+        .glass-card:hover {
+            background: var(--bg-card-hover);
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+
+        /* Problem Section */
+        .problem-section {
+            padding: 100px 0;
+        }
+
+        .section-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--glow-cyan);
+            margin-bottom: 16px;
+        }
+
+        h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -0.01em;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .problem-card {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--glow-orange), var(--glow-pink));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .problem-card:hover::before {
+            opacity: 1;
+        }
+
+        .problem-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(249, 115, 22, 0.1);
+            border: 1px solid rgba(249, 115, 22, 0.3);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .problem-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .problem-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Story Section */
+        .story-section {
+            padding: 100px 0;
+        }
+
+        .story-card {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .story-card::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(135deg, var(--glow-purple), var(--glow-cyan), var(--glow-green));
+            border-radius: 18px;
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        .story-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--bg-dark);
+            border-radius: 16px;
+            z-index: -1;
+        }
+
+        .story-quote {
+            font-size: 3rem;
+            line-height: 1;
+            background: var(--gradient-hero);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 24px;
+        }
+
+        .story-card p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .story-card p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .story-card strong {
+            color: var(--text-primary);
+        }
+
+        .story-highlight {
+            color: var(--glow-cyan) !important;
+            font-weight: 500;
+        }
+
+        .story-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .author-avatar {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--glow-purple), var(--glow-cyan));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .author-info h4 {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .author-info p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+
+        /* What You Get Section */
+        .features-section {
+            padding: 100px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .feature-card {
+            position: relative;
+        }
+
+        .feature-card.purple { --accent: var(--glow-purple); }
+        .feature-card.cyan { --accent: var(--glow-cyan); }
+        .feature-card.green { --accent: var(--glow-green); }
+        .feature-card.pink { --accent: var(--glow-pink); }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            background: linear-gradient(180deg, var(--accent), transparent);
+            border-radius: 17px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .feature-card:hover::before {
+            opacity: 0.5;
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 0 40px rgba(168, 85, 247, 0.1);
+        }
+
+        .feature-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent);
+            opacity: 0.3;
+            line-height: 1;
+            margin-bottom: 16px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Offer Section */
+        .offer-section {
+            padding: 100px 0;
+        }
+
+        .offer-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            align-items: start;
+        }
+
+        @media (max-width: 768px) {
+            .offer-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .offer-card {
+            position: relative;
+        }
+
+        .offer-card.featured {
+            background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(6, 182, 212, 0.1));
+        }
+
+        .offer-card.featured::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(135deg, var(--glow-purple), var(--glow-cyan));
+            border-radius: 18px;
+            z-index: -1;
+            animation: borderGlow 3s ease-in-out infinite;
+        }
+
+        .offer-card.featured::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--bg-dark);
+            border-radius: 16px;
+            z-index: -1;
+        }
+
+        @keyframes borderGlow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+
+        .offer-badge {
+            display: inline-block;
+            padding: 6px 14px;
+            background: linear-gradient(135deg, var(--glow-purple), var(--glow-pink));
+            border-radius: 100px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+        }
+
+        .offer-price {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .price-amount {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+
+        .price-period {
+            color: var(--text-muted);
+            font-size: 1rem;
+        }
+
+        .offer-desc {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .offer-features {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .offer-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-subtle);
+            font-size: 0.95rem;
+        }
+
+        .offer-features li:last-child {
+            border-bottom: none;
+        }
+
+        .check-icon {
+            width: 20px;
+            height: 20px;
+            background: rgba(16, 185, 129, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .check-icon svg {
+            width: 12px;
+            height: 12px;
+            color: var(--glow-green);
+        }
+
+        .btn-secondary {
+            display: block;
+            width: 100%;
+            padding: 16px 32px;
+            background: transparent;
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-card);
+            border-color: var(--text-muted);
+        }
+
+        .btn-offer {
+            display: block;
+            width: 100%;
+            padding: 18px 32px;
+            background: linear-gradient(135deg, var(--glow-purple), var(--glow-cyan));
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
+        }
+
+        .btn-offer:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 50px rgba(168, 85, 247, 0.5);
+        }
+
+        .spots-remaining {
+            text-align: center;
+            margin-top: 16px;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .spots-remaining strong {
+            color: var(--glow-orange);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 100px 0;
+        }
+
+        .faq-grid {
+            max-width: 800px;
+            margin: 48px auto 0;
+        }
+
+        .faq-item {
+            margin-bottom: 16px;
+        }
+
+        .faq-question {
+            width: 100%;
+            padding: 20px 24px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:hover {
+            background: var(--bg-card-hover);
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+
+        .faq-question.active {
+            border-radius: 12px 12px 0 0;
+            border-bottom-color: transparent;
+        }
+
+        .faq-icon {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 0 24px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-top: none;
+            border-radius: 0 0 12px 12px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 0;
+            border-top: 1px solid var(--border-subtle);
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            background: var(--gradient-hero);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 16px;
+        }
+
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .hero {
+                padding: 100px 0 60px;
+            }
+
+            .glass-card {
+                padding: 24px;
+            }
+
+            .btn-primary {
+                padding: 16px 32px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Effects -->
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-glow bg-glow-3"></div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">Career Vector</div>
+            <a href="#offer" class="nav-cta">Become a Founder</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="badge">
+                    <span class="badge-dot"></span>
+                    Now accepting Founding Members
+                </div>
+                <h1>Stop Applying to Jobs That <span class="gradient-text">Cap Your Future</span></h1>
+                <p class="hero-subtitle">AI-powered career redirection for professionals who are stuck, displaced, or watching AI reshape their industry. Discover paths you didn't know existed.</p>
+                <div class="cta-group">
+                    <a href="#offer" class="btn-primary">
+                        Claim Founding Member Access
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <p class="cta-note"><strong>First 100 only</strong> — Lifetime access for $199</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section">
+        <div class="container">
+            <div class="section-label">The Problem</div>
+            <h2>Career tools today assume you know what you want.<br>Most people don't.</h2>
+            
+            <div class="problem-grid">
+                <div class="glass-card problem-card">
+                    <div class="problem-icon">🔍</div>
+                    <h3>Job boards match keywords, not potential</h3>
+                    <p>They see "Active Directory" and serve you more AD admin roles at $145K. They have no idea you're capable of more—or that you're done with that path.</p>
+                </div>
+                <div class="glass-card problem-card">
+                    <div class="problem-icon">📚</div>
+                    <h3>EdTech assumes you know what to learn</h3>
+                    <p>Coursera asks what course you want. LinkedIn Learning suggests skills from your history. No one asks: "What should you actually learn given where you want to go?"</p>
+                </div>
+                <div class="glass-card problem-card">
+                    <div class="problem-icon">🤖</div>
+                    <h3>AI is changing everything—except career advice</h3>
+                    <p>Generic chatbots encourage you. Recruiters place you. Neither helps you think strategically about positioning for an AI-transformed economy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section class="story-section">
+        <div class="container">
+            <div class="section-label">Why I Built This</div>
+            <div class="glass-card story-card">
+                <div class="story-quote">"</div>
+                <p>I'm 56. I spent 30 years in IT. When I started looking at options, every career site told me the same thing: <strong>"You're missing Okta and Ping Federate. Learn those and you'll be competitive for these $145K AD admin roles."</strong></p>
+                <p>But I didn't want another technician job. I was done being capped at $150K in roles that used 20% of my actual abilities.</p>
+                <p>After months of working through this myself, I discovered something: <span class="story-highlight">my real strength isn't technical skills—it's understanding how complex systems work end-to-end and turning ambiguity into strategy.</span></p>
+                <p>That realization changed everything. I stopped applying to admin roles. I pivoted to AI-enhanced consulting at <strong>$175/hour</strong> doing work that actually uses my brain.</p>
+                <p>I'm building the tool I wish existed—the one that would have saved me months of false starts and shown me the path I couldn't see.</p>
+                
+                <div class="story-author">
+                    <div class="author-avatar">R</div>
+                    <div class="author-info">
+                        <h4>Rich</h4>
+                        <p>Founder, Career Vector</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="section-label">What You Get</div>
+            <h2>Not a job board. Not a resume tool.<br>A direction and strategy engine.</h2>
+            
+            <div class="features-grid">
+                <div class="glass-card feature-card purple">
+                    <div class="feature-number">01</div>
+                    <h3>Deep Discovery</h3>
+                    <p>Uncover your actual strengths—not resume keywords. Your cognitive style, tolerance for ambiguity, and the environments where you thrive.</p>
+                </div>
+                <div class="glass-card feature-card cyan">
+                    <div class="feature-number">02</div>
+                    <h3>Non-Obvious Paths</h3>
+                    <p>See career directions you've never considered. Adjacent pivots, strategic jumps, and roles that leverage what you're actually good at.</p>
+                </div>
+                <div class="glass-card feature-card green">
+                    <div class="feature-number">03</div>
+                    <h3>AI-Era Positioning</h3>
+                    <p>Learn how to leverage AI rather than compete with it. Identify roles where human judgment, strategy, and cross-domain thinking still matter.</p>
+                </div>
+                <div class="glass-card feature-card pink">
+                    <div class="feature-number">04</div>
+                    <h3>90-Day Action Map</h3>
+                    <p>Get a concrete plan to test viability—not endless courses. What to try, what signals to watch, and how to iterate when reality pushes back.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Offer Section -->
+    <section class="offer-section" id="offer">
+        <div class="container">
+            <div class="section-label">Limited Founding Offer</div>
+            <h2>Get lifetime access before we launch</h2>
+            
+            <div class="offer-wrapper">
+                <div class="glass-card offer-card">
+                    <div class="offer-badge" style="background: transparent; border: 1px solid var(--border-subtle); color: var(--text-secondary);">Early Adopter</div>
+                    <div class="offer-price">
+                        <span class="price-amount">$99</span>
+                        <span class="price-period">one-time</span>
+                    </div>
+                    <p class="offer-desc">12 months access + 50% off renewals forever</p>
+                    <ul class="offer-features">
+                        <li>
+                            <span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>
+                            Full discovery + path analysis
+                        </li>
+                        <li>
+                            <span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>
+                            AI positioning guidance
+                        </li>
+                        <li>
+                            <span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>
+                            90-day action map
+                        </li>
+                        <li>
+                            <span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>
+                            30-day money-back guarantee
+                        </li>
+                    </ul>
+                    <!-- REPLACE WITH YOUR STRIPE PAYMENT LINK FOR $99 EARLY ADOPTER -->
+                    <a href="YOUR_STRIPE_LINK_99" class="btn-secondary">Join Early Adopters</a>
+                </div>
+
+                <div class="glass-card offer-card featured">
+                    <div class="offer-badge">Founding Member</div>
+                    <div class="offer-price">
+                        <span class="price-amount">$199</span>
+                        <span class="price-period">lifetime</span>
+                    </div>
+                    <p class="offer-desc">Never pay again. Forever access. Shape the product.</p>
+                    <ul class="offer-features">
+                        <li>
+                            <span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>
+                            <strong>Lifetime access</strong> — all features, forever
+                        </li>
+                        <li>
+                            <span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>
+                            <strong>All future updates</strong> included
+                        </li>
+                        <li>
+                            <span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>
+                            <strong>Direct input</strong> on feature priorities
+                        </li>
+                        <li>
+                            <span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>
+                            <strong>Founding Member</strong> badge + recognition
+                        </li>
+                        <li>
+                            <span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>
+                            <strong>30-day money-back</strong> guarantee
+                        </li>
+                    </ul>
+                    <!-- REPLACE WITH YOUR STRIPE PAYMENT LINK FOR $199 FOUNDING MEMBER -->
+                    <a href="YOUR_STRIPE_LINK_199" class="btn-offer">Become a Founding Member</a>
+                    <p class="spots-remaining"><strong>100 of 100</strong> spots remaining</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-label">Questions</div>
+            <h2 style="text-align: center;">Frequently Asked</h2>
+            
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <button class="faq-question">
+                        When does it launch?
+                        <span class="faq-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 5v14M5 12h14"/>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>January 2026. Founding members get early access as features roll out, starting with deep discovery and path analysis.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        What if it doesn't work for me?
+                        <span class="faq-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 5v14M5 12h14"/>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Full refund within 30 days of launch. No questions asked. If it doesn't give you clarity, you shouldn't pay for it.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Why lifetime for $199?
+                        <span class="faq-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 5v14M5 12h14"/>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Because you believed in this before it existed. Founding members take a risk on me—I want that risk to pay off forever. After launch, this becomes a $39/month subscription.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Is this just another AI chatbot?
+                        <span class="faq-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 5v14M5 12h14"/>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>No. This is a structured system with a specific methodology. It challenges your assumptions, surfaces blind spots, and gives you concrete action plans—not generic encouragement.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question">
+                        Who is this for?
+                        <span class="faq-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 5v14M5 12h14"/>
+                            </svg>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Professionals aged 30-60 who are stuck at a salary ceiling, recently displaced, or anxious about AI disruption. People who know something needs to change but can't see the path forward.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo">Career Vector</div>
+            <p class="footer-text">Built by someone who needed it. For everyone who does.</p>
+        </div>
+    </footer>
+
+    <!-- FAQ Toggle Script -->
+    <script>
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const answer = button.nextElementSibling;
+                const isActive = button.classList.contains('active');
+                
+                // Close all others
+                document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('active'));
+                document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('active'));
+                
+                // Toggle current
+                if (!isActive) {
+                    button.classList.add('active');
+                    answer.classList.add('active');
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
